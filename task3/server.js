@@ -15,13 +15,13 @@ app.post("/user", async (req, res) => {
     if (existingUser.length === 0) {
       const newUser = new User({ name: name, email: email });
       await newUser.save();
-      res.status(200).json({ messsage: "User successfully added." });
+      res.status(200).json({ message: "User successfully added." });
     } else {
-      res.status(400).json({ messsage: "User already existed." });
+      res.status(400).json({ message: "User already existed." });
     }
   } catch (err) {
     console.log(err);
-    res.status(400).json({ messsage: "User failed to add.", error: err });
+    res.status(400).json({ message: "User failed to add.", error: err });
   }
 });
 
@@ -30,10 +30,10 @@ app.post("/order", async (req, res) => {
     const { amount, userID } = req.body;
     const newOrder = new Order({ amount: amount, user: userID });
     await newOrder.save();
-    res.status(200).json({ messsage: "Order confirmed." });
+    res.status(200).json({ message: "Order confirmed." });
   } catch (err) {
     console.log(err);
-    res.status(400).json({ messsage: "Failed to add Order.", error: err });
+    res.status(400).json({ message: "Failed to add Order.", error: err });
   }
 });
 
@@ -71,9 +71,9 @@ app.get("/last-order", async (req, res) => {
       },
     ]);
     console.log(lastOrderOfAllUser);
-    res.status(200).json({ messsage: "Success", data: lastOrderOfAllUser });
+    res.status(200).json({ message: "Success", data: lastOrderOfAllUser });
   } catch (err) {
-    res.status(400).json({ messsage: "User failed to add.", error: err });
+    res.status(400).json({ message: "User failed to add.", error: err });
   }
 });
 

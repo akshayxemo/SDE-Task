@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const dbConnect = () => {
   try {
     if (process.env.DB_URI == null) {
-      console.log("No URI specifed ...");
+      console.log("No URI specified...");
       return;
     }
     mongoose.connect(process.env.DB_URI);
